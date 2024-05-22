@@ -19,12 +19,18 @@ class AppText {
   static const String humidityText = "Humidity";
   static const String failedText = "Failed to load Data";
 
-  static const String failureAssetAnim = "assets/anim/failure.json";
+  static const String locationNotFoundAssetAnim =
+      "assets/anim/location_not_found.json";
+  static const String locationAssetAnim = "assets/anim/location.json";
   static const String hourForecastText = "Hourly Forecast";
   static const String sevenDaysForecastText = "7 Days Forecast";
+  static const String maxTemptText = "Max Temp";
+  static const String minTemptText = "Min Temp";
+  static const String sunRisetText = "Sun Rise";
+  static const String sunSetText = "Sun Set";
 
-  static TextStyle sunTextStyle =  TextStyle(
-    color: Colors.white,
+  static TextStyle sunTextStyle = TextStyle(
+    color: AppColor.blackColor,
     fontSize: 20.0,
     fontWeight: FontWeight.bold,
   );
@@ -50,8 +56,10 @@ class AppText {
     color: AppColor.whiteColor,
   );
 
-  static TextStyle sunTimeTextStyle =
-      const TextStyle(color: Colors.white, fontSize: 16.0);
+  static TextStyle sunTimeTextStyle = const TextStyle(
+    color: Colors.white,
+    fontSize: 16.0,
+  );
 
 //Location and Time Text Style
   static TextStyle locationWithTimeTextStyle = TextStyle(

@@ -32,7 +32,9 @@ class HomeView extends GetView<HomeController> {
             future: controller.futureWeather.value,
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: SpinKitWave(color: AppColor.black38Color));
+                return Center(
+                  child:Lottie.asset('assets/anim/location.json', ),
+                );
               }
 
               if (snapshot.hasError) {
@@ -105,7 +107,7 @@ class HomeView extends GetView<HomeController> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Lottie.asset(AppText.failureAssetAnim),
+          Lottie.asset(AppText.locationNotFoundAssetAnim),
           const Text(AppText.failedText),
           _iconButton(
             onClick: () => controller.updateWeather(),

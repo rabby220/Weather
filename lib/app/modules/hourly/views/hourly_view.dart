@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_weather_bg_null_safety/bg/weather_bg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-
 import '../../../utils/app_color.dart';
 import '../../../utils/app_text.dart';
 import '../../home/controllers/home_controller.dart';
@@ -23,9 +22,7 @@ class HourlyView extends GetView<HourlyController> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100.0,
-        title:  Text(
-          AppText.hourForecastText,
-            style: AppText.sunTextStyle),
+        title: Text(AppText.hourForecastText, style: AppText.sunTextStyle, ),
         centerTitle: true,
         backgroundColor: AppColor.whiteColor,
       ),
@@ -53,7 +50,7 @@ class HourlyView extends GetView<HourlyController> {
                             Column(
                               children: [
                                 const Text(
-                                  'Max Temp',
+                                  AppText.maxTemptText,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -79,14 +76,14 @@ class HourlyView extends GetView<HourlyController> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'o',
+                                          AppText.degreeText,
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 10.0,
                                           ),
                                         ),
                                         Text(
-                                          'C',
+                                          AppText.celsiusText,
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 20.0,
@@ -101,7 +98,7 @@ class HourlyView extends GetView<HourlyController> {
                             Column(
                               children: [
                                 const Text(
-                                  'Min Temp',
+                                  AppText.minTemptText,
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -126,14 +123,14 @@ class HourlyView extends GetView<HourlyController> {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'o',
+                                          AppText.degreeText,
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 10.0,
                                           ),
                                         ),
                                         Text(
-                                          'C',
+                                          AppText.celsiusText,
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 20.0,
@@ -158,7 +155,7 @@ class HourlyView extends GetView<HourlyController> {
                           Column(
                             children: [
                               const Text(
-                                'Sun Rise',
+                                AppText.sunRisetText,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -178,7 +175,7 @@ class HourlyView extends GetView<HourlyController> {
                           Column(
                             children: [
                               const Text(
-                                'Sun Set',
+                                AppText.sunSetText,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -204,7 +201,7 @@ class HourlyView extends GetView<HourlyController> {
                           Column(
                             children: [
                               const Text(
-                                'Wind',
+                                AppText.windText,
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
@@ -306,14 +303,14 @@ class HourlyView extends GetView<HourlyController> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'o',
+                                            AppText.degreeText,
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 10.0,
                                             ),
                                           ),
                                           Text(
-                                            'C',
+                                            AppText.celsiusText,
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 15.0,
@@ -345,12 +342,12 @@ class HourlyView extends GetView<HourlyController> {
                                   Row(
                                     children: [
                                       Text(
-                                          "Wind: ${forecastHour?.windKph?.round().toString() ?? ""}km/h"),
+                                          "${AppText.windText}  : ${forecastHour?.windKph?.round().toString() ?? ""}km/h"),
                                       const SizedBox(
                                         width: 20.0,
                                       ),
                                       Text(
-                                          "Humidity: ${forecastHour?.humidity?.round().toString() ?? ""}%"),
+                                          "${AppText.humidityText} : ${forecastHour?.humidity?.round().toString() ?? ""}%"),
                                     ],
                                   ),
 
@@ -364,7 +361,7 @@ class HourlyView extends GetView<HourlyController> {
                                   Row(
                                     children: [
                                       Text(
-                                          'Feels Likes : ${forecastHour?.feelslikeC?.round().toString() ?? ""}'),
+                                          '${AppText.feelsLikeText} : ${forecastHour?.feelslikeC?.round().toString() ?? ""}'),
                                       const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
@@ -372,14 +369,14 @@ class HourlyView extends GetView<HourlyController> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'o',
+                                            AppText.degreeText,
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 10.0,
                                             ),
                                           ),
                                           Text(
-                                            'C',
+                                            AppText.celsiusText,
                                             style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 15.0,
