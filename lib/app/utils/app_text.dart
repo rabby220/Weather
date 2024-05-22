@@ -56,8 +56,8 @@ class AppText {
     color: AppColor.whiteColor,
   );
 
-  static TextStyle sunTimeTextStyle = const TextStyle(
-    color: Colors.white,
+  static TextStyle sunTimeTextStyle = TextStyle(
+    color: AppColor.whiteColor,
     fontSize: 16.0,
   );
 
@@ -67,4 +67,21 @@ class AppText {
     fontWeight: FontWeight.bold,
     color: AppColor.blackColor,
   );
+
+  ///Hourly
+  static TextStyle hourlyBackgroundTextStyle = TextStyle(
+      color: AppColor.blackColor, fontWeight: FontWeight.bold, fontSize: 15.0);
+
+  static TextStyle hourlyCelsiusTextStyle = TextStyle(
+    color: AppColor.blackColor,
+    fontSize: 15.0,
+  );
+
+  static TextStyle hourlyDegreeTextStyle = TextStyle(
+    color: AppColor.redColor,
+    fontSize: 10.0,
+  );
+
+  static TextStyle hourlyTimeTextStyle =
+      TextStyle(color: AppColor.blackColor, fontSize: 17.0);
 }
