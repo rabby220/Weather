@@ -6,7 +6,9 @@ import 'package:weather/app/utils/app_text.dart';
 import '../controllers/introduce_screen_controller.dart';
 
 class IntroduceScreenView extends GetView<IntroduceScreenController> {
-  const IntroduceScreenView({super.key});
+   const IntroduceScreenView({super.key});
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +50,7 @@ class IntroduceScreenView extends GetView<IntroduceScreenController> {
               backgroundColor: Colors.transparent,
               tapTargetSize: MaterialTapTargetSize.padded),
           onDone: () {
-            Get.toNamed('/home');
+            Get.offNamed('/home');
           },
           dotsDecorator: DotsDecorator(
             size: const Size.square(10.0),
