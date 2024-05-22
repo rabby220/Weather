@@ -6,14 +6,15 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/hourly/bindings/hourly_binding.dart';
 import '../modules/hourly/views/hourly_view.dart';
-
+import '../modules/introduce_screen/bindings/introduce_screen_binding.dart';
+import '../modules/introduce_screen/views/introduce_screen_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.INTRODUCE_SCREEN;
 
   static final routes = [
     GetPage(
@@ -31,6 +32,10 @@ class AppPages {
       page: () => HourlyView(),
       binding: HourlyBinding(),
     ),
-
+    GetPage(
+      name: _Paths.INTRODUCE_SCREEN,
+      page: () => const IntroduceScreenView(),
+      binding: IntroduceScreenBinding(),
+    ),
   ];
 }

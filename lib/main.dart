@@ -18,6 +18,14 @@ void main() {
       debugShowCheckedModeBanner: false,
       initialRoute: AppPages.INITIAL,
       getPages: AppPages.routes,
+
+      //Global setting  for all page
+      enableLog: true,
+      defaultTransition: Transition.fade,
+      opaqueRoute: Get.isOpaqueRouteDefault,
+      popGesture: Get.isPopGestureEnable,
+      transitionDuration: Get.defaultTransitionDuration,
+      defaultGlobalState: Get.defaultPopGesture,
     ),
   );
 }

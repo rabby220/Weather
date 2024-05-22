@@ -19,9 +19,17 @@ class AppText {
   static const String humidityText = "Humidity";
   static const String failedText = "Failed to load Data";
 
+  //Assets Path
   static const String locationNotFoundAssetAnim =
       "assets/anim/location_not_found.json";
   static const String locationAssetAnim = "assets/anim/location.json";
+
+  static const String dayRainAssetAnim = "assets/anim/day_rain.json";
+  static const String daySnowAssetAnim = "assets/anim/day_snow.json";
+  static const String nightCloudyAssetAnim = "assets/anim/night_cloudy.json";
+
+
+
   static const String hourForecastText = "Hourly Forecast";
   static const String sevenDaysForecastText = "7 Days Forecast";
   static const String maxTemptText = "Max Temp";

@@ -6,7 +6,7 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const FORECAST = _Paths.FORECAST;
   static const HOURLY = _Paths.HOURLY;
-
+  static const INTRODUCE_SCREEN = _Paths.INTRODUCE_SCREEN;
 }
 
 abstract class _Paths {
@@ -14,5 +14,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const FORECAST = '/forecast';
   static const HOURLY = '/hourly';
-
+  static const INTRODUCE_SCREEN = '/introduce-screen';
 }
