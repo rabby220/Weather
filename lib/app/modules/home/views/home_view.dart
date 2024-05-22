@@ -18,9 +18,6 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    final currentWidth = MediaQuery.of(context).size.width;
-    final currentHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: AppColor.whiteColor,
       key: scaffoldKey,
@@ -43,7 +40,9 @@ class HomeView extends GetView<HomeController> {
               if (snapshot.hasData) {
                 final weatherModel = snapshot.data;
                 return _buildWeatherContent(
-                    weatherModel, currentWidth, currentHeight);
+                    weatherModel,
+                    MediaQuery.of(context).size.width,
+                    MediaQuery.of(context).size.height);
               }
 
               return const Center(child: Text('No data available'));
@@ -110,8 +109,6 @@ class HomeView extends GetView<HomeController> {
           const Text(AppText.failedText),
           _iconButton(
             onClick: () => controller.updateWeather(),
-            /*onClick: () {
-              Get.toNamed('/forecast');},*/
             icon: AppIcons.refreshIcon,
             color: AppColor.redColor,
             size: 25.0,

@@ -5,8 +5,10 @@
 import FlutterMacOS
 import Foundation
 
-import location
+import connectivity_plus
+import geolocator_apple
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
-  LocationPlugin.register(with: registry.registrar(forPlugin: "LocationPlugin"))
+  ConnectivityPlusPlugin.register(with: registry.registrar(forPlugin: "ConnectivityPlusPlugin"))
+  GeolocatorPlugin.register(with: registry.registrar(forPlugin: "GeolocatorPlugin"))
 }

@@ -1,5 +1,5 @@
+import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_weather_bg_null_safety/utils/weather_type.dart';
 import 'package:get/get.dart';
@@ -8,6 +8,8 @@ import '../../../data/constant/apis.dart';
 import '../../../data/models/weather_model.dart';
 
 class HomeController extends GetxController {
+
+
   final searchTextController = TextEditingController();
 
   RxString searchText = "auto:ip".obs;
