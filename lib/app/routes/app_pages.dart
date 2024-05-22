@@ -7,6 +7,7 @@ import '../modules/home/views/home_view.dart';
 import '../modules/hourly/bindings/hourly_binding.dart';
 import '../modules/hourly/views/hourly_view.dart';
 
+
 part 'app_routes.dart';
 
 class AppPages {
@@ -30,5 +31,6 @@ class AppPages {
       page: () => HourlyView(),
       binding: HourlyBinding(),
     ),
+
   ];
 }

@@ -9,6 +9,7 @@ import '../../home/controllers/home_controller.dart';
 import '../controllers/hourly_controller.dart';
 
 class HourlyView extends GetView<HourlyController> {
+  HourlyView({super.key});
   final HomeController homeController = Get.put(HomeController());
 
   @override
@@ -36,10 +37,7 @@ class HourlyView extends GetView<HourlyController> {
   AppBar _buildAppBar() {
     return AppBar(
       toolbarHeight: 100.0,
-      title: Text(
-        AppText.hourForecastText,
-        style: AppText.sunTextStyle.copyWith(fontSize: 24.0),
-      ),
+      title: Text(AppText.hourForecastText, style: AppText.sunTextStyle),
       centerTitle: true,
       backgroundColor: AppColor.whiteColor,
     );
@@ -94,20 +92,19 @@ class HourlyView extends GetView<HourlyController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 18.0),
-        ),
         const SizedBox(height: 5.0),
-        Text(
-          value,
-          style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 5.0),
-        Text(
-          '${AppText.degreeText} ${AppText.celsiusText}',
-          style: AppText.degreeTextStyle.copyWith(fontSize: 14.0),
-        ),
+        _text(label, AppText.hourlyBackgroundTextStyle),
+        Row(children: [
+          _text(value, AppText.hourlyBackgroundTextStyle),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _text(AppText.degreeText, AppText.hourlyDegreeTextStyle),
+              _text(AppText.celsiusText, AppText.hourlyCelsiusTextStyle),
+            ],
+          ),
+        ]),
       ],
     );
   }
@@ -126,15 +123,9 @@ class HourlyView extends GetView<HourlyController> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 18.0),
-        ),
+        Text(label, style: AppText.hourlyBackgroundTextStyle),
         const SizedBox(height: 5.0),
-        Text(
-          time ?? '',
-          style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.bold),
-        ),
+        Text(time ?? '', style: AppText.hourlyBackgroundTextStyle),
       ],
     );
   }
@@ -153,25 +144,16 @@ class HourlyView extends GetView<HourlyController> {
   }
 
   Widget _buildWeatherCondition(String? condition) {
-    return Text(
-      condition ?? '',
-      style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 16.0),
-    );
+    return Text(condition ?? '', style: AppText.hourlyBackgroundTextStyle);
   }
 
   Widget _buildWeatherItem({required String label, required String value}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 18.0),
-        ),
+        Text(label, style: AppText.hourlyBackgroundTextStyle),
         const SizedBox(height: 5.0),
-        Text(
-          value,
-          style: AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 20.0, fontWeight: FontWeight.bold),
-        ),
+        Text(value, style: AppText.hourlyBackgroundTextStyle),
       ],
     );
   }
@@ -179,7 +161,7 @@ class HourlyView extends GetView<HourlyController> {
   Widget _buildHourlyList(dynamic forecast) {
     return ListView.builder(
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       itemCount: forecast?.hour?.length ?? 0,
       itemBuilder: (_, index) {
         final forecastHour = forecast?.hour?[index];
@@ -209,43 +191,56 @@ class HourlyView extends GetView<HourlyController> {
 
   Widget _buildHourlyTime(dynamic forecastHour) {
     return Text(
-      DateFormat.jm().format(DateTime.parse(forecastHour?.time ?? '')),
-      style: AppText.hourlyTimeTextStyle.copyWith(fontSize: 18.0),
-    );
+        DateFormat.jm().format(DateTime.parse(forecastHour?.time ?? '')),
+        style: AppText.hourlyTimeTextStyle);
   }
 
   Widget _buildHourlyDetails(dynamic forecastHour) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        _text(
-          forecastHour?.tempC?.round()?.toString() ?? '',
-          AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 18.0),
+        Row(
+          children: [
+            _text(forecastHour?.tempC?.round()?.toString() ?? '',
+                AppText.hourlyBackgroundTextStyle),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _text(AppText.degreeText, AppText.hourlyDegreeTextStyle),
+                _text(AppText.celsiusText, AppText.hourlyCelsiusTextStyle),
+              ],
+            ),
+          ],
         ),
         const SizedBox(height: 5.0),
-        _text(
-          '${AppText.degreeText}${AppText.celsiusText}',
-          AppText.degreeTextStyle.copyWith(fontSize: 14.0),
-        ),
+        _text(forecastHour?.condition?.text ?? '',
+            AppText.hourlyBackgroundTextStyle),
         const SizedBox(height: 5.0),
         _text(
-          forecastHour?.condition?.text ?? '',
-          AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 16.0),
-        ),
+            '${AppText.windText}: ${forecastHour?.windKph?.round()?.toString() ?? ''} Km/h',
+            AppText.hourlyBackgroundTextStyle),
         const SizedBox(height: 5.0),
         _text(
-          '${AppText.windText}: ${forecastHour?.windKph?.round()?.toString() ?? ''} Km/h',
-          AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 16.0),
-        ),
+            '${AppText.humidityText}: ${forecastHour?.humidity?.round()?.toString() ?? ''}%',
+            AppText.hourlyBackgroundTextStyle),
+
+        ///Feels Like
         const SizedBox(height: 5.0),
-        _text(
-          '${AppText.humidityText}: ${forecastHour?.humidity?.round()?.toString() ?? ''}%',
-          AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 16.0),
-        ),
-        const SizedBox(height: 5.0),
-        _text(
-          '${AppText.feelsLikeText}: ${forecastHour?.feelslikeC?.round()?.toString() ?? ''} ${AppText.degreeText}${AppText.celsiusText}',
-          AppText.hourlyBackgroundTextStyle.copyWith(fontSize: 16.0),
+        Row(
+          children: [
+            _text(
+                "${AppText.feelsLikeText}: ${forecastHour?.feelslikeC?.round()?.toString() ?? ''} ",
+                AppText.hourlyBackgroundTextStyle),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _text(AppText.degreeText, AppText.hourlyDegreeTextStyle),
+                _text(AppText.celsiusText, AppText.hourlyCelsiusTextStyle),
+              ],
+            ),
+          ],
         ),
       ],
     );

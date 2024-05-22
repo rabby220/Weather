@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_weather_bg_null_safety/flutter_weather_bg.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -33,7 +32,7 @@ class HomeView extends GetView<HomeController> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child:Lottie.asset('assets/anim/location.json', ),
+                  child:Lottie.asset(AppText.locationAssetAnim),
                 );
               }
 
@@ -75,7 +74,7 @@ class HomeView extends GetView<HomeController> {
           icon: AppIcons.infoOutlineIcon,
           label: AppText.appLabelText,
           onTap: () {
-            _showSnackBar(AppText.labelText, AppText.versionCode);
+            _showSnackBar(AppText.appLabelText, AppText.versionCode);
           },
         ),
       ],
@@ -111,6 +110,8 @@ class HomeView extends GetView<HomeController> {
           const Text(AppText.failedText),
           _iconButton(
             onClick: () => controller.updateWeather(),
+            /*onClick: () {
+              Get.toNamed('/forecast');},*/
             icon: AppIcons.refreshIcon,
             color: AppColor.redColor,
             size: 25.0,

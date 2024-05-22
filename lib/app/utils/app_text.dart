@@ -43,7 +43,7 @@ class AppText {
 
   //Weather degree Text Style
   static TextStyle degreeTextStyle = TextStyle(
-    color: AppColor.whiteColor,
+    color: AppColor.blackColor,
     fontSize: 10.0,
   );
 
@@ -63,14 +63,14 @@ class AppText {
 
 //Location and Time Text Style
   static TextStyle locationWithTimeTextStyle = TextStyle(
-    fontSize: 30.0,
+    fontSize: 20.0,
     fontWeight: FontWeight.bold,
     color: AppColor.blackColor,
   );
 
   ///Hourly
   static TextStyle hourlyBackgroundTextStyle = TextStyle(
-      color: AppColor.blackColor, fontWeight: FontWeight.bold, fontSize: 15.0);
+      color: AppColor.blackColor, fontWeight: FontWeight.bold, fontSize: 16.0);
 
   static TextStyle hourlyCelsiusTextStyle = TextStyle(
     color: AppColor.blackColor,

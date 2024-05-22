@@ -6,6 +6,7 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const FORECAST = _Paths.FORECAST;
   static const HOURLY = _Paths.HOURLY;
+
 }
 
 abstract class _Paths {
@@ -13,4 +14,5 @@ abstract class _Paths {
   static const HOME = '/home';
   static const FORECAST = '/forecast';
   static const HOURLY = '/hourly';
+
 }
