@@ -32,7 +32,7 @@ class HomeView extends GetView<HomeController> {
             builder: (_, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return Center(
-                  child:Lottie.asset(AppText.locationAssetAnim),
+                  child: Lottie.asset(AppText.locationAssetAnim),
                 );
               }
 
